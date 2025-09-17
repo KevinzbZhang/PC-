@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>腾讯广告 - 中小广告主</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1677ff',
+                        secondary: '#4096ff',
+                        light: '#e8f3ff',
+                        dark: '#1d2129',
+                        'tencent-blue': '#0066cc',
+                        'warm-orange': '#ff7d00',
+                        'warm-yellow': '#faad14',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .bg-gradient-warm {
+                background: linear-gradient(135deg, #fff7e6 0%, #fff1d2 100%);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(255, 125, 0, 0.1);
+            }
+            .story-tag {
+                @apply bg-orange-50 text-orange-600 text-xs px-2 py-1 rounded-full;
+            }
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .tool-card-shadow {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-white">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex items-center justify-center md:justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <img src="https://qzonestyle.gdtimg.com/gdt_ui_proj/imghub/dist/eqq-home-rotary-center-logo.svg?max_age=31536000" alt="腾讯广告logo" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-lg font-bold text-tencent-blue">腾讯广告</span>
+                    </a>
+                    
+                    <!-- 桌面端主导航 -->
+                    <nav class="hidden md:flex ml-10 space-x-5">
+                        <a href="#" class="text-dark hover:text-primary text-sm font-medium transition-colors">首页</a>
+                        <a href="#" class="text-dark hover:text-primary text-sm font-medium transition-colors">广告资源</a>
+                        <a href="#" class="text-dark hover:text-primary text-sm font-medium transition-colors">广告技术</a>
+                        <a href="#" class="text-primary text-sm font-medium transition-colors">中小广告主</a>
+                        <a href="#" class="text-dark hover:text-primary text-sm font-medium transition-colors">成功案例</a>
+                        <a href="#" class="text-dark hover:text-primary text-sm font-medium transition-colors">视频号广告</a>
+                        <a href="#" class="text-dark hover:text-primary text-sm font-medium transition-colors">资讯和洞察</a>
+                        <a href="#" class="text-dark hover:text-primary text-sm font-medium transition-colors">帮助中心</a>
+                        <a href="#" class="text-dark hover:text-primary text-sm font-medium transition-colors">营销学堂</a>
+                        <a href="#" class="text-dark hover:text-primary text-sm font-medium transition-colors">服务商专区</a>
+                    </nav>
+                </div>
+                
+                <!-- 右侧功能区 -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="p-2 text-gray-500 hover:text-primary transition-colors">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <a href="#" class="text-gray-700 hover:text-primary text-sm transition-colors">登录</a>
+                    <a href="#" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md text-sm transition-colors shadow-sm hover:shadow">立即开户体验</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden p-2 text-gray-500 hover:text-primary transition-colors" id="mobile-menu-button">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端主导航菜单 -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-main-menu">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">首页</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">广告资源</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">广告技术</a>
+                <a href="#" class="block py-2 text-primary font-medium">中小广告主</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">成功案例</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">视频号广告</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">资讯和洞察</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">帮助中心</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">营销学堂</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">服务商专区</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">登录</a>
+            </div>
+        </div>
+        
+        <!-- 小客之家二级导航 -->
+        <div class="bg-white border-t border-gray-100 shadow-sm">
+            <div class="container mx-auto px-4">
+                <nav class="flex overflow-x-auto py-3 space-x-1 md:space-x-6 hide-scrollbar">
+                    <a href="#home" class="whitespace-nowrap px-3 py-1.5 text-warm-orange border-b-2 border-warm-orange font-medium rounded-sm">小客之家</a>
+                    <a href="#stories" class="whitespace-nowrap px-3 py-1.5 text-gray-600 hover:text-warm-orange border-b-2 border-transparent hover:border-warm-orange/30 font-medium rounded-sm transition-colors">创业故事</a>
+                    <a href="#tools" class="whitespace-nowrap px-3 py-1.5 text-gray-600 hover:text-warm-orange border-b-2 border-transparent hover:border-warm-orange/30 font-medium rounded-sm transition-colors">趁手工具</a>
+                    <a href="#tutorials" class="whitespace-nowrap px-3 py-1.5 text-gray-600 hover:text-warm-orange border-b-2 border-transparent hover:border-warm-orange/30 font-medium rounded-sm transition-colors">干货教程</a>
+                    <a href="#try-now" class="whitespace-nowrap px-3 py-1.5 text-gray-600 hover:text-warm-orange border-b-2 border-transparent hover:border-warm-orange/30 font-medium rounded-sm transition-colors">我也试试</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 小客之家头部 - 更换为新图片 -->
+        <section id="home" class="py-12 md:py-20 relative overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://ams-mkt-mgr-test-1258344696.cos.ap-guangzhou.myqcloud.com/eqq_portal/eqq-home-banner-animation-poster.jpg" alt="小客之家背景图" class="w-full h-full object-cover">
+            </div>
+            <div class="container mx-auto px-4 md:px-6 relative z-10">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-bold text-[#333333] mb-4">
+                        腾讯广告小客之家
+                    </h1>
+                    <p class="text-[#444444] text-lg md:text-xl mb-8">
+                        让每一个小生意都能被看见
+                    </p>
+                    <p class="text-[#555555] mb-10 max-w-2xl mx-auto">
+                        这里是所有中小经营者的创业大本营、故事分享会、资源补给站和工具百宝箱。我们致敬每一个小小的创业梦想。
+                    </p>
+                    <a href="#try-now" class="inline-block bg-warm-orange hover:bg-warm-orange/90 text-white px-6 py-3 rounded-md font-medium transition-all shadow-lg hover:shadow-xl">
+                        立即加入，开启你的创业之旅
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 创业热门动态 -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <h2 class="text-2xl font-bold mb-8">最近动态</h2>
+                
+                <div class="space-y-6">
+                    <!-- 动态项1 -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 card-hover">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                                <img src="https://picsum.photos/id/64/100/100" alt="李老板头像" class="w-full h-full object-cover">
+                            </div>
+                            <div class="ml-4 flex-grow">
+                                <p class="text-gray-800">
+                                    <span class="font-medium">李老板</span> 刚分享了他的投放心得："用本地推30天，我的餐馆客流增加了40%"
+                                </p>
+                                <div class="mt-3 flex items-center text-sm text-gray-500">
+                                    <span><i class="fa fa-clock-o mr-1"></i> 2小时前</span>
+                                    <span class="mx-3">·</span>
+                                    <button class="hover:text-primary transition-colors"><i class="fa fa-thumbs-o-up mr-1"></i> 32人觉得有用</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 动态项2 -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 card-hover">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                                <img src="https://picsum.photos/id/65/100/100" alt="系统通知图标" class="w-full h-full object-cover">
+                            </div>
+                            <div class="ml-4 flex-grow">
+                                <p class="text-gray-800">
+                                    <span class="font-medium text-warm-orange">系统通知</span> 最近又有 <span class="font-medium">23位</span> 朋友在小客之家开启了他们的广告投放之旅
+                                </p>
+                                <div class="mt-3 flex items-center text-sm text-gray-500">
+                                    <span><i class="fa fa-clock-o mr-1"></i> 今天 10:30</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 动态项3 -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 card-hover">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                                <img src="https://picsum.photos/id/66/100/100" alt="王姐头像" class="w-full h-full object-cover">
+                            </div>
+                            <div class="ml-4 flex-grow">
+                                <p class="text-gray-800">
+                                    <span class="font-medium">王姐</span> 发布了新的创业故事：<a href="小客之家-创业故事页.html" class="hover:text-primary transition-colors">"从全职妈妈到童装店老板，我用视频号实现了月入5万"</a>
+                                </p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="story-tag">#宝妈创业</span>
+                                    <span class="story-tag">#视频号</span>
+                                    <span class="story-tag">#启动资金1万</span>
+                                </div>
+                                <div class="mt-3 flex items-center text-sm text-gray-500">
+                                    <span><i class="fa fa-clock-o mr-1"></i> 昨天 15:42</span>
+                                    <span class="mx-3">·</span>
+                                    <button class="hover:text-primary transition-colors"><i class="fa fa-thumbs-o-up mr-1"></i> 87人觉得有用</button>
+                                    <span class="mx-3">·</span>
+                                    <button class="hover:text-primary transition-colors"><i class="fa fa-comment-o mr-1"></i> 12条评论</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 动态项4 -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 card-hover">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                                <img src="https://picsum.photos/id/67/100/100" alt="张教练头像" class="w-full h-full object-cover">
+                            </div>
+                            <div class="ml-4 flex-grow">
+                                <p class="text-gray-800">
+                                    <span class="font-medium">张教练</span> 分享了新的工具使用心得："用'妙思'做视频，我的篮球培训课咨询量翻了一倍"
+                                </p>
+                                <div class="mt-3 flex items-center text-sm text-gray-500">
+                                    <span><i class="fa fa-clock-o mr-1"></i> 3天前</span>
+                                    <span class="mx-3">·</span>
+                                    <button class="hover:text-primary transition-colors"><i class="fa fa-thumbs-o-up mr-1"></i> 56人觉得有用</button>
+                                    <span class="mx-3">·</span>
+                                    <button class="hover:text-primary transition-colors"><i class="fa fa-comment-o mr-1"></i> 8条评论</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <button class="text-primary hover:text-primary/80 font-medium transition-colors">
+                        查看更多动态 <i class="fa fa-angle-down ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 创业故事 -->
+        <section id="stories" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 md:px-6">
+                <h2 class="text-2xl font-bold mb-2">创业故事</h2>
+                <p class="text-gray-600 mb-8">真实的经营故事，实用的推广经验，来自和你一样的创业者</p>
+                
+                <!-- 故事筛选区 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm mb-10">
+                    <h3 class="font-medium mb-4">筛选故事</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- 经营类型 -->
+                        <div>
+                            <label class="block text-gray-700 mb-2">你是干啥的：</label>
+                            <div class="flex flex-wrap gap-3">
+                                <button class="bg-light text-primary px-4 py-2 rounded-full text-sm font-medium">开店卖货</button>
+                                <button class="bg-gray-100 hover:bg-light text-gray-700 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-colors">搞培训</button>
+                                <button class="bg-gray-100 hover:bg-light text-gray-700 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-colors">做服务</button>
+                                <button class="bg-gray-100 hover:bg-light text-gray-700 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-colors">跑线下</button>
+                            </div>
+                        </div>
+                        
+                        <!-- 投入资金 -->
+                        <div>
+                            <label class="block text-gray-700 mb-2">你投了多少钱：</label>
+                            <div class="flex flex-wrap gap-3">
+                                <button class="bg-gray-100 hover:bg-light text-gray-700 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-colors">5千以下</button>
+                                <button class="bg-light text-primary px-4 py-2 rounded-full text-sm font-medium">5千-2万</button>
+                                <button class="bg-gray-100 hover:bg-light text-gray-700 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-colors">2万以上</button>
+                            </div>
+                        </div>
+                        
+                        <!-- 所在地区 -->
+                        <div>
+                            <label class="block text-gray-700 mb-2">你在哪儿：</label>
+                            <div class="flex flex-wrap gap-3">
+                                <button class="bg-gray-100 hover:bg-light text-gray-700 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-colors">一线城市</button>
+                                <button class="bg-gray-100 hover:bg-light text-gray-700 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-colors">新一线</button>
+                                <button class="bg-light text-primary px-4 py-2 rounded-full text-sm font-medium">其他</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 故事列表 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 故事1 -->
+                    <a href="小客之家-创业故事页.html" class="bg-white rounded-xl overflow-hidden shadow-sm card-hover block">
+                        <div class="relative h-48">
+                            <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/7b309376566141de80ac36ce2eb246fc~tplv-a9rns2rl98-image.image?rcl=20250909152903448F952734E388D08E67&rk3s=8e244e95&rrcfp=2609e108&x-expires=1758007747&x-signature=yZSmM2qEouYh6QH6PvccFq94uDI%3D" alt="90后宝妈卖童装" class="w-full h-full object-cover">
+                            <div class="absolute top-3 left-3">
+                                <span class="story-tag">#宝妈创业</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-semibold text-lg mb-3">90后宝妈，如何靠视频号卖童装月入5万？</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="story-tag">#视频号</span>
+                                <span class="story-tag">#启动资金1万</span>
+                                <span class="story-tag">#女装童装</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                                从每天围着孩子转，到拥有自己的童装小事业，我只用了3个月。一开始只是想记录孩子的成长，没想到随手发的穿搭视频火了...
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="https://picsum.photos/id/64/100/100" alt="王姐头像" class="w-8 h-8 rounded-full object-cover">
+                                    <span class="ml-2 text-sm text-gray-600">王姐 · 6天前</span>
+                                </div>
+                                <span class="text-sm text-gray-500"><i class="fa fa-eye mr-1"></i> 2.3k阅读</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- 故事2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+                        <div class="relative h-48">
+                            <img src="https://picsum.photos/id/28/600/400" alt="篮球教练获客" class="w-full h-full object-cover">
+                            <div class="absolute top-3 left-3">
+                                <span class="story-tag">#培训教育</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-semibold text-lg mb-3">一个篮球教练的30天获客实验</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="story-tag">#本地推</span>
+                                <span class="story-tag">#月增客户200+</span>
+                                <span class="story-tag">#5千-2万</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                                体育馆租金越来越高，学员却不见增长。偶然听说本地推能精准找到附近的客户，抱着试试看的心态投了5000块，结果超出预期...
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="https://picsum.photos/id/65/100/100" alt="张教练头像" class="w-8 h-8 rounded-full object-cover">
+                                    <span class="ml-2 text-sm text-gray-600">张教练 · 12天前</span>
+                                </div>
+                                <span class="text-sm text-gray-500"><i class="fa fa-eye mr-1"></i> 1.8k阅读</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 故事3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+                        <div class="relative h-48">
+                            <img src="https://picsum.photos/id/42/600/400" alt="小吃店老板" class="w-full h-full object-cover">
+                            <div class="absolute top-3 left-3">
+                                <span class="story-tag">#餐饮美食</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-semibold text-lg mb-3">50后大叔的小吃店转型记：学会用广告后排队到巷尾</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="story-tag">#50后店主</span>
+                                <span class="story-tag">#本地推</span>
+                                <span class="story-tag">#5千以下</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                                开了10年的小吃店，差点被疫情搞垮。儿子教我用了腾讯广告的本地推，没想到老头子也能跟上新时代，现在每天顾客排到巷尾...
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="https://picsum.photos/id/91/100/100" alt="刘大叔头像" class="w-8 h-8 rounded-full object-cover">
+                                    <span class="ml-2 text-sm text-gray-600">刘大叔 · 20天前</span>
+                                </div>
+                                <span class="text-sm text-gray-500"><i class="fa fa-eye mr-1"></i> 3.1k阅读</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-10 text-center">
+                    <a href="#" class="inline-block border border-warm-orange text-warm-orange hover:bg-warm-orange hover:text-white px-6 py-2 rounded-md font-medium transition-colors">
+                        查看更多创业故事
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 趁手工具 - 优化为图文并茂设计 -->
+        <section id="tools" class="py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <h2 class="text-2xl font-bold mb-2">趁手工具</h2>
+                <p class="text-gray-600 mb-8">按你的"痛点"找工具，简单好用，花钱有数</p>
+                
+                <!-- 工具分类 - 按痛点 -->
+                <div class="space-y-16">
+                    <!-- 痛点1 -->
+                    <div>
+                        <h3 class="text-xl font-semibold mb-8 flex items-center">
+                            <span class="w-8 h-8 bg-primary/10 text-primary rounded-full flex items-center justify-center mr-3">
+                                <i class="fa fa-user-plus"></i>
+                            </span>
+                            想让人加我微信
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- 工具1 -->
+                            <div class="bg-white rounded-xl overflow-hidden tool-card-shadow card-hover">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3">
+                                        <img src="https://picsum.photos/seed/fancoupon/400/300" alt="粉丝券工具展示" class="h-full w-full object-cover">
+                                    </div>
+                                    <div class="p-6 md:w-2/3">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                                            <i class="fa fa-ticket text-primary text-xl"></i>
+                                        </div>
+                                        <h4 class="font-medium text-lg mb-3">粉丝券</h4>
+                                        <p class="text-gray-600 text-sm mb-4">
+                                            用优惠券吸引客户添加微信，成为你的私域粉丝，长期复购。
+                                        </p>
+                                        
+                                        <div class="space-y-3 mb-4">
+                                            <div class="flex items-start">
+                                                <span class="text-primary font-medium mr-2 mt-0.5">•</span>
+                                                <div>
+                                                    <h5 class="text-gray-700 text-sm font-medium">谁能用？</h5>
+                                                    <p class="text-gray-600 text-sm">实体店老板、电商卖家、服务提供者</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-start">
+                                                <span class="text-primary font-medium mr-2 mt-0.5">•</span>
+                                                <div>
+                                                    <h5 class="text-gray-700 text-sm font-medium">大概要花多少钱？</h5>
+                                                    <p class="text-gray-600 text-sm">500-2000元/月，可根据效果随时调整</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <a href="#" class="inline-block text-primary hover:text-primary/80 text-sm font-medium">
+                                            了解详情 <i class="fa fa-angle-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 工具2 -->
+                            <div class="bg-white rounded-xl overflow-hidden tool-card-shadow card-hover">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3">
+                                        <img src="https://picsum.photos/id/2/400/600" alt="企微客服工具展示" class="h-full w-full object-cover">
+                                    </div>
+                                    <div class="p-6 md:w-2/3">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                                            <i class="fa fa-comments-o text-primary text-xl"></i>
+                                        </div>
+                                        <h4 class="font-medium text-lg mb-3">企微客服</h4>
+                                        <p class="text-gray-600 text-sm mb-4">
+                                            一键添加企业微信客服，自动回复客户咨询，高效沉淀客户资源。
+                                        </p>
+                                        
+                                        <div class="space-y-3 mb-4">
+                                            <div class="flex items-start">
+                                                <span class="text-primary font-medium mr-2 mt-0.5">•</span>
+                                                <div>
+                                                    <h5 class="text-gray-700 text-sm font-medium">谁能用？</h5>
+                                                    <p class="text-gray-600 text-sm">各类需要客户咨询的商家，尤其是线上业务</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-start">
+                                                <span class="text-primary font-medium mr-2 mt-0.5">•</span>
+                                                <div>
+                                                    <h5 class="text-gray-700 text-sm font-medium">大概要花多少钱？</h5>
+                                                    <p class="text-gray-600 text-sm">基础功能免费，推广费用800-3000元/月</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <a href="#" class="inline-block text-primary hover:text-primary/80 text-sm font-medium">
+                                            了解详情 <i class="fa fa-angle-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 痛点2 -->
+                    <div>
+                        <h3 class="text-xl font-semibold mb-8 flex items-center">
+                            <span class="w-8 h-8 bg-primary/10 text-primary rounded-full flex items-center justify-center mr-3">
+                                <i class="fa fa-shopping-cart"></i>
+                            </span>
+                            想让人直接下单
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- 工具3 -->
+                            <div class="bg-white rounded-xl overflow-hidden tool-card-shadow card-hover">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3">
+                                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/c1c19c7701d742378dbe2c9974df4d8b~tplv-a9rns2rl98-image.image?rcl=202509081405433A2564D9C7B2B79A0800&rk3s=8e244e95&rrcfp=2609e108&x-expires=1757916346&x-signature=i4zZGumlvL7fn0qZvxD%2F%2F4FBVAE%3D" alt="微信小店工具展示" class="h-full w-full object-cover">
+                                    </div>
+                                    <div class="p-6 md:w-2/3">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                                            <i class="fa fa-shopping-bag text-primary text-xl"></i>
+                                        </div>
+                                        <h4 class="font-medium text-lg mb-3">微信小店</h4>
+                                        <p class="text-gray-600 text-sm mb-4">
+                                            零门槛开微信小店，客户看到广告可直接下单，无需跳转其他平台。
+                                        </p>
+                                        
+                                        <div class="space-y-3 mb-4">
+                                            <div class="flex items-start">
+                                                <span class="text-primary font-medium mr-2 mt-0.5">•</span>
+                                                <div>
+                                                    <h5 class="text-gray-700 text-sm font-medium">谁能用？</h5>
+                                                    <p class="text-gray-600 text-sm">电商卖家、手工艺品制作者、微商</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-start">
+                                                <span class="text-primary font-medium mr-2 mt-0.5">•</span>
+                                                <div>
+                                                    <h5 class="text-gray-700 text-sm font-medium">大概要花多少钱？</h5>
+                                                    <p class="text-gray-600 text-sm">开店免费，推广费用1000-5000元/月</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <a href="#" class="inline-block text-primary hover:text-primary/80 text-sm font-medium">
+                                            了解详情 <i class="fa fa-angle-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 工具4 -->
+                            <div class="bg-white rounded-xl overflow-hidden tool-card-shadow card-hover">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3">
+                                        <img src="https://picsum.photos/id/4/400/600" alt="直购链路工具展示" class="h-full w-full object-cover">
+                                    </div>
+                                    <div class="p-6 md:w-2/3">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                                            <i class="fa fa-link text-primary text-xl"></i>
+                                        </div>
+                                        <h4 class="font-medium text-lg mb-3">直购链路</h4>
+                                        <p class="text-gray-600 text-sm mb-4">
+                                            一键直达你的电商平台，缩短购买路径，提高下单转化率。
+                                        </p>
+                                        
+                                        <div class="space-y-3 mb-4">
+                                            <div class="flex items-start">
+                                                <span class="text-primary font-medium mr-2 mt-0.5">•</span>
+                                                <div>
+                                                    <h5 class="text-gray-700 text-sm font-medium">谁能用？</h5>
+                                                    <p class="text-gray-600 text-sm">已有电商店铺的商家（淘宝、京东、拼多多等）</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-start">
+                                                <span class="text-primary font-medium mr-2 mt-0.5">•</span>
+                                                <div>
+                                                    <h5 class="text-gray-700 text-sm font-medium">大概要花多少钱？</h5>
+                                                    <p class="text-gray-600 text-sm">1500-8000元/月，根据平台和商品而定</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <a href="#" class="inline-block text-primary hover:text-primary/80 text-sm font-medium">
+                                            了解详情 <i class="fa fa-angle-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 痛点3 -->
+                    <div>
+                        <h3 class="text-xl font-semibold mb-8 flex items-center">
+                            <span class="w-8 h-8 bg-primary/10 text-primary rounded-full flex items-center justify-center mr-3">
+                                <i class="fa fa-map-marker"></i>
+                            </span>
+                            想让附近的人知道我
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- 工具5 -->
+                            <div class="bg-white rounded-xl overflow-hidden tool-card-shadow card-hover">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3">
+                                        <img src="https://picsum.photos/seed/localmarketing/400/300" alt="本地推工具展示" class="h-full w-full object-cover">
+                                    </div>
+                                    <div class="p-6 md:w-2/3">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                                            <i class="fa fa-map text-primary text-xl"></i>
+                                        </div>
+                                        <h4 class="font-medium text-lg mb-3">本地推</h4>
+                                        <p class="text-gray-600 text-sm mb-4">
+                                            精准触达店铺周边3-10公里的潜在客户，特别适合实体店引流。
+                                        </p>
+                                        
+                                        <div class="space-y-3 mb-4">
+                                            <div class="flex items-start">
+                                                <span class="text-primary font-medium mr-2 mt-0.5">•</span>
+                                                <div>
+                                                    <h5 class="text-gray-700 text-sm font-medium">谁能用？</h5>
+                                                    <p class="text-gray-600 text-sm">餐馆、美容院、健身房、便利店等实体店</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-start">
+                                                <span class="text-primary font-medium mr-2 mt-0.5">•</span>
+                                                <div>
+                                                    <h5 class="text-gray-700 text-sm font-medium">大概要花多少钱？</h5>
+                                                    <p class="text-gray-600 text-sm">800-3000元/月，按实际曝光收费</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <a href="#" class="inline-block text-primary hover:text-primary/80 text-sm font-medium">
+                                            了解详情 <i class="fa fa-angle-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 工具6 -->
+                            <div class="bg-white rounded-xl overflow-hidden tool-card-shadow card-hover">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3">
+                                        <img src="https://picsum.photos/seed/checkin/400/300" alt="门店打卡工具展示" class="h-full w-full object-cover">
+                                    </div>
+                                    <div class="p-6 md:w-2/3">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                                            <i class="fa fa-camera text-primary text-xl"></i>
+                                        </div>
+                                        <h4 class="font-medium text-lg mb-3">门店打卡</h4>
+                                        <p class="text-gray-600 text-sm mb-4">
+                                            鼓励到店客户打卡分享，裂变传播，带来更多新客户。
+                                        </p>
+                                        
+                                        <div class="space-y-3 mb-4">
+                                            <div class="flex items-start">
+                                                <span class="text-primary font-medium mr-2 mt-0.5">•</span>
+                                                <div>
+                                                    <h5 class="text-gray-700 text-sm font-medium">谁能用？</h5>
+                                                    <p class="text-gray-600 text-sm">各类线下门店，尤其是餐饮、零售、娱乐场所</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-start">
+                                                <span class="text-primary font-medium mr-2 mt-0.5">•</span>
+                                                <div>
+                                                    <h5 class="text-gray-700 text-sm font-medium">大概要花多少钱？</h5>
+                                                    <p class="text-gray-600 text-sm">基础功能免费，激励活动预算500-2000元/月</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <a href="#" class="inline-block text-primary hover:text-primary/80 text-sm font-medium">
+                                            了解详情 <i class="fa fa-angle-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 干货教程 - 恢复为6个内容 -->
+        <section id="tutorials" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 md:px-6">
+                <h2 class="text-2xl font-bold mb-2">干货教程</h2>
+                <p class="text-gray-600 mb-8">实用、易懂的"操作说明书"，让你快速上手</p>
+                
+                <!-- 教程分类 -->
+                <div class="mb-10">
+                    <div class="flex flex-wrap gap-3">
+                        <button class="bg-warm-orange text-white px-5 py-2 rounded-full text-sm font-medium">全部教程</button>
+                        <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2 rounded-full text-sm font-medium transition-colors">从0到1</button>
+                        <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2 rounded-full text-sm font-medium transition-colors">行业秘籍</button>
+                        <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2 rounded-full text-sm font-medium transition-colors">工具使用</button>
+                    </div>
+                </div>
+                
+                <!-- 教程列表 - 6个内容 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 教程1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+                        <div class="relative h-48">
+                            <img src="https://picsum.photos/id/0/600/400" alt="小白开户充值" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                <span class="text-white bg-warm-orange/90 px-3 py-1 rounded-full text-sm flex items-center">
+                                    <i class="fa fa-play-circle mr-1"></i> 1分30秒
+                                </span>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="story-tag">#从0到1</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-semibold text-lg mb-2">小白开户充值全流程</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                3步完成开户，5分钟搞定充值，看完就会，再也不用求人。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500"><i class="fa fa-eye mr-1"></i> 5.2k观看</span>
+                                <span class="text-sm text-gray-500"><i class="fa fa-thumbs-o-up mr-1"></i> 328</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 教程2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+                        <div class="relative h-48">
+                            <img src="https://picsum.photos/id/431/600/400" alt="第一笔预算设置" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                <span class="text-white bg-warm-orange/90 px-3 py-1 rounded-full text-sm flex items-center">
+                                    <i class="fa fa-play-circle mr-1"></i> 2分15秒
+                                </span>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="story-tag">#从0到1</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-semibold text-lg mb-2">第一笔预算怎么设？看这里</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                新手必看！教你根据生意类型设置合理预算，不花冤枉钱。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500"><i class="fa fa-eye mr-1"></i> 3.8k观看</span>
+                                <span class="text-sm text-gray-500"><i class="fa fa-thumbs-o-up mr-1"></i> 256</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 教程3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+                        <div class="relative h-48">
+                            <img src="https://picsum.photos/id/292/600/400" alt="小吃店引流" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                <span class="text-white bg-warm-orange/90 px-3 py-1 rounded-full text-sm flex items-center">
+                                    <i class="fa fa-play-circle mr-1"></i> 3分40秒
+                                </span>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="story-tag">#行业秘籍</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-semibold text-lg mb-2">小吃店引流宝典，3招满座</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                餐饮老板必学！低成本高转化的引流技巧，看完就能用。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500"><i class="fa fa-eye mr-1"></i> 7.5k观看</span>
+                                <span class="text-sm text-gray-500"><i class="fa fa-thumbs-o-up mr-1"></i> 512</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 教程4 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+                        <div class="relative h-48">
+                            <img src="https://picsum.photos/id/119/600/400" alt="视频号广告投放" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                <span class="text-white bg-warm-orange/90 px-3 py-1 rounded-full text-sm flex items-center">
+                                    <i class="fa fa-play-circle mr-1"></i> 4分20秒
+                                </span>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="story-tag">#工具使用</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-semibold text-lg mb-2">视频号广告投放全攻略</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                从内容制作到投放优化，手把手教你玩转视频号广告。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500"><i class="fa fa-eye mr-1"></i> 6.3k观看</span>
+                                <span class="text-sm text-gray-500"><i class="fa fa-thumbs-o-up mr-1"></i> 421</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 教程5 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+                        <div class="relative h-48">
+                            <img src="https://picsum.photos/id/26/600/400" alt="朋友圈广告设计" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                <span class="text-white bg-warm-orange/90 px-3 py-1 rounded-full text-sm flex items-center">
+                                    <i class="fa fa-play-circle mr-1"></i> 2分50秒
+                                </span>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="story-tag">#工具使用</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-semibold text-lg mb-2">朋友圈广告设计3原则</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                不用PS也能做出高点击广告图，3个原则让你事半功倍。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500"><i class="fa fa-eye mr-1"></i> 4.7k观看</span>
+                                <span class="text-sm text-gray-500"><i class="fa fa-thumbs-o-up mr-1"></i> 367</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 教程6 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+                        <div class="relative h-48">
+                            <img src="https://picsum.photos/id/28/600/400" alt="数据分析入门" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                <span class="text-white bg-warm-orange/90 px-3 py-1 rounded-full text-sm flex items-center">
+                                    <i class="fa fa-play-circle mr-1"></i> 3分15秒
+                                </span>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="story-tag">#从0到1</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-semibold text-lg mb-2">数据分析入门：看懂这3个指标</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                不用懂复杂公式，教你快速判断广告效果，及时调整策略。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500"><i class="fa fa-eye mr-1"></i> 3.2k观看</span>
+                                <span class="text-sm text-gray-500"><i class="fa fa-thumbs-o-up mr-1"></i> 289</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-10 text-center">
+                    <a href="#" class="inline-block border border-warm-orange text-warm-orange hover:bg-warm-orange hover:text-white px-6 py-2 rounded-md font-medium transition-colors">
+                        查看更多教程
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 我也试试 -->
+        <section id="try-now" class="py-16 bg-gradient-warm">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="p-8 md:p-10">
+                            <h2 class="text-2xl font-bold mb-6">现在就试试，开启你的推广之旅</h2>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h3 class="font-medium text-lg mb-1">注册即送 1000 元流量券</h3>
+                                        <p class="text-gray-600 text-sm">新用户专享，可直接抵扣广告费用</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h3 class="font-medium text-lg mb-1">每天送你 10 张素材，不花钱</h3>
+                                        <p class="text-gray-600 text-sm">专业设计团队制作，直接能用的广告素材</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h3 class="font-medium text-lg mb-1">不成交不花钱，有成交才花钱</h3>
+                                        <p class="text-gray-600 text-sm">按实际效果付费，降低你的推广风险</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h3 class="font-medium text-lg mb-1">免费代运营服务，不出人也能投</h3>
+                                        <p class="text-gray-600 text-sm">专业团队帮你操作，省心省力效果好</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <a href="#" class="block w-full bg-warm-orange hover:bg-warm-orange/90 text-white text-center px-6 py-3 rounded-md font-medium transition-all shadow-lg hover:shadow-xl">
+                                    立即注册，领取福利
+                                </a>
+                                <p class="text-center text-gray-500 text-sm mt-4">
+                                    已有账号？<a href="#" class="text-primary hover:underline">直接登录</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:block relative">
+                            <img src="https://picsum.photos/id/325/800/1000" alt="加入小客之家" class="absolute inset-0 w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
+                                <div class="p-10 text-white max-w-xs">
+                                    <p class="text-lg font-medium mb-4">"加入小客之家后，我的小店客流增加了3倍，现在已经开了分店！"</p>
+                                    <div class="flex items-center">
+                                        <img src="https://picsum.photos/id/64/100/100" alt="陈老板头像" class="w-10 h-10 rounded-full object-cover">
+                                        <div class="ml-3">
+                                            <p class="font-medium">陈老板</p>
+                                            <p class="text-sm text-white/80">服装店店主 · 加入6个月</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="bg-gray-50 border-t border-gray-200 py-12">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <img src="https://qzonestyle.gdtimg.com/gdt_ui_proj/imghub/dist/eqq-home-rotary-center-logo.svg?max_age=31536000" alt="腾讯广告logo" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-lg font-bold text-tencent-blue">腾讯广告</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        腾讯广告为您提供一站式数字营销解决方案，助力企业实现增长目标。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fa fa-qq"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">广告资源</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">微信广告</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">QQ广告</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">腾讯视频广告</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">信息流广告</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">搜索广告</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">帮助中心</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">新手指南</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">常见问题</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">政策法规</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">联系客服</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">反馈建议</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">关于我们</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">公司介绍</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">成功案例</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">营销学院</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">加入我们</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">商务合作</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-200 text-center text-sm text-gray-500">
+                <p>© 2023 腾讯广告 版权所有 | 腾讯公司 版权所有</p>
+                <p class="mt-2">营业执照 | 增值电信业务经营许可证 | 网络文化经营许可证</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 在线客服 -->
+    <div class="fixed bottom-6 right-6 z-40">
+        <div class="bg-white rounded-full shadow-lg p-3 flex items-center space-x-3 hover:shadow-xl transition-shadow cursor-pointer group">
+            <div class="w-10 h-10 flex items-center justify-center">
+                <img src="https://qzonestyle.gdtimg.com/gdt_ui_proj/imghub/dist/mw-icon-entry-logo.png?max_age=31536000" alt="小客专属客服" class="w-full h-full object-contain">
+            </div>
+            <span class="text-gray-700 font-medium group-hover:text-warm-orange transition-colors">小客专属客服</span>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMainMenu = document.getElementById('mobile-main-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMainMenu.classList.toggle('hidden');
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.remove('shadow');
+                header.classList.add('shadow-sm');
+            }
+        });
+        
+        // 二级导航点击高亮效果
+        const secondaryNavLinks = document.querySelectorAll('#home, #stories, #tools, #tutorials, #try-now');
+        const navItems = document.querySelectorAll('.bg-white.border-t.border-gray-100.shadow-sm nav a');
+        
+        // 点击导航项时高亮
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // 移除所有高亮
+                navItems.forEach(nav => {
+                    nav.classList.remove('text-warm-orange', 'border-warm-orange');
+                    nav.classList.add('text-gray-600', 'border-transparent');
+                });
+                
+                // 给当前点击项添加高亮
+                this.classList.remove('text-gray-600', 'border-transparent');
+                this.classList.add('text-warm-orange', 'border-warm-orange');
+            });
+        });
+        
+        // 滚动时高亮对应导航项
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY + 150;
+            
+            secondaryNavLinks.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    // 移除所有高亮
+                    navItems.forEach(nav => {
+                        nav.classList.remove('text-warm-orange', 'border-warm-orange');
+                        nav.classList.add('text-gray-600', 'border-transparent');
+                    });
+                    
+                    // 高亮对应导航项
+                    const correspondingNav = document.querySelector(`.bg-white.border-t.border-gray-100.shadow-sm nav a[href="#${sectionId}"]`);
+                    if (correspondingNav) {
+                        correspondingNav.classList.remove('text-gray-600', 'border-transparent');
+                        correspondingNav.classList.add('text-warm-orange', 'border-warm-orange');
+                    }
+                }
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 120,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单
+                    if (!mobileMainMenu.classList.contains('hidden')) {
+                        mobileMainMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+    
