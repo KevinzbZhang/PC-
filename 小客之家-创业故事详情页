@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90后宝妈，如何靠视频号卖童装月入5万？ - 腾讯广告新客专区</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1677ff',
+                        secondary: '#4096ff',
+                        light: '#e8f3ff',
+                        dark: '#1d2129',
+                        'tencent-blue': '#0066cc',
+                        'warm-orange': '#ff7d00',
+                        'warm-yellow': '#faad14',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .highlight-box {
+                @apply bg-orange-50 border-l-4 border-warm-orange p-4 rounded-r;
+            }
+            .key-data {
+                @apply bg-white rounded-xl shadow-sm p-4 text-center;
+            }
+            .step-item {
+                @apply flex mb-8 relative;
+            }
+            .step-item::before {
+                content: '';
+                @apply absolute left-3 top-10 bottom-0 w-0.5 bg-gray-200;
+            }
+            .step-item:last-child::before {
+                @apply hidden;
+            }
+            .step-number {
+                @apply w-7 h-7 rounded-full bg-warm-orange text-white flex items-center justify-center font-medium flex-shrink-0 mr-4;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-gray-50">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex items-center justify-center md:justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="small-business-home-v2.html" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <img src="https://qzonestyle.gdtimg.com/gdt_ui_proj/imghub/dist/eqq-home-rotary-center-logo.svg?max_age=31536000" alt="腾讯广告logo" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-lg font-bold text-tencent-blue">腾讯广告</span>
+                    </a>
+                    
+                    <!-- 桌面端主导航 -->
+                    <nav class="hidden md:flex ml-10 space-x-5">
+                         <a href="index.html" class="flex items-center text-dark hover:text-primary text-sm font-medium transition-colors py-1">首页</a>
+                        <a href="#" class="flex items-center text-dark hover:text-primary text-sm font-medium transition-colors py-1">广告资源</a>
+                        <a href="#" class="flex items-center text-dark hover:text-primary text-sm font-medium transition-colors py-1">广告技术</a>
+                        <a href="index.html" class="flex items-center justify-center p-1 hover:opacity-90 transition-opacity">
+                            <img src="https://raw.githubusercontent.com/KevinzbZhang/PC-/main/xinkelibao.png" alt="限时福利" class="h-8 object-contain">
+                        </a>
+                        <a href="#" class="flex items-center text-dark hover:text-primary text-sm font-medium transition-colors py-1">视频号广告</a>
+                        <a href="#" class="flex items-center text-dark hover:text-primary text-sm font-medium transition-colors py-1">资讯和洞察</a>
+                        <a href="#" class="flex items-center text-dark hover:text-primary text-sm font-medium transition-colors py-1">帮助中心</a>
+                        <a href="#" class="flex items-center text-dark hover:text-primary text-sm font-medium transition-colors py-1">营销学堂</a>
+                        <a href="#" class="flex items-center text-dark hover:text-primary text-sm font-medium transition-colors py-1">服务商专区</a>
+                    </nav>
+                </div>
+                
+                <!-- 右侧功能区 -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="p-2 text-gray-500 hover:text-primary transition-colors">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <a href="#" class="text-gray-700 hover:text-primary text-sm transition-colors">登录</a>
+                    <a href="#" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md text-sm transition-colors shadow-sm hover:shadow">立即开户体验</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden p-2 text-gray-500 hover:text-primary transition-colors" id="mobile-menu-button">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端主导航菜单 -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-main-menu">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">首页</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">广告资源</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">广告技术</a>
+                <a href="index.html" class="flex items-center justify-center py-2 hover:opacity-90 transition-opacity">
+                    <img src="https://raw.githubusercontent.com/KevinzbZhang/PC-/main/xinkelibao.png" alt="限时福利" class="h-8 object-contain">
+                </a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">成功案例</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">视频号广告</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">资讯和洞察</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">帮助中心</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">营销学堂</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">服务商专区</a>
+                <a href="#" class="block py-2 text-dark hover:text-primary font-medium">登录</a>
+            </div>
+        </div>
+        
+        <!-- 小客之家二级导航 -->
+        <div class="bg-white border-t border-gray-100 shadow-sm">
+            <div class="container mx-auto px-4">
+                <nav class="flex overflow-x-auto py-3 space-x-1 md:space-x-6 hide-scrollbar">
+                    <a href="index.html#home" class="whitespace-nowrap px-3 py-1.5 text-gray-600 hover:text-warm-orange border-b-2 border-transparent hover:border-warm-orange/30 font-medium rounded-sm transition-colors">新客专区</a>
+                    <a href="index.html#创业故事" class="whitespace-nowrap px-3 py-1.5 text-warm-orange border-b-2 border-warm-orange font-medium rounded-sm">成长故事</a>
+                    <a href="index.html#tools" class="whitespace-nowrap px-3 py-1.5 text-gray-600 hover:text-warm-orange border-b-2 border-transparent hover:border-warm-orange/30 font-medium rounded-sm transition-colors">趁手工具</a>
+                    <a href="index.html#tutorials" class="hidden whitespace-nowrap px-3 py-1.5 text-gray-600 hover:text-warm-orange border-b-2 border-transparent hover:border-warm-orange/30 font-medium rounded-sm transition-colors">干货教程</a>
+                    <a href="index.html#try-now" class="whitespace-nowrap px-3 py-1.5 text-gray-600 hover:text-warm-orange border-b-2 border-transparent hover:border-warm-orange/30 font-medium rounded-sm transition-colors">我也试试</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-8">
+        <div class="container mx-auto px-4 md:px-6">
+            <!-- 面包屑导航 -->
+            <div class="text-sm text-gray-500 mb-6">
+            <a href="index.html" class="hover:text-primary">新客专区</a>
+            <span class="mx-2">>></span>
+            <a href="index.html#创业故事" class="hover:text-primary">成长故事</a>
+            <span class="mx-2">>></span>
+            <span>90后宝妈，如何靠视频号卖童装月入5万？</span>
+        </div>
+            
+            <!-- 故事标题区域 -->
+            <div class="max-w-3xl mx-auto mb-10 text-center">
+                <div class="flex flex-wrap justify-center gap-2 mb-4">
+                    <span class="story-tag">#宝妈创业</span>
+                    <span class="story-tag">#视频号</span>
+                    <span class="story-tag">#启动资金1万</span>
+                    <span class="story-tag">#女装童装</span>
+                </div>
+                <h1 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6">90后宝妈，如何靠视频号卖童装月入5万？</h1>
+                
+                <!-- 作者信息 -->
+                <div class="flex items-center justify-center mb-8">
+                    <img src="https://picsum.photos/id/64/100/100" alt="王姐头像" class="w-12 h-12 rounded-full object-cover">
+                    <div class="ml-4 text-left">
+                        <div class="font-medium">王姐</div>
+                        <div class="text-sm text-gray-500">童装店创始人 · 发布于 6天前</div>
+                    </div>
+                </div>
+                
+                <!-- 核心数据卡片 -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="key-data">
+                        <div class="text-2xl font-bold text-warm-orange mb-1">1万</div>
+                        <div class="text-sm text-gray-600">启动资金(元)</div>
+                    </div>
+                    <div class="key-data">
+                        <div class="text-2xl font-bold text-warm-orange mb-1">3个月</div>
+                        <div class="text-sm text-gray-600">盈利周期</div>
+                    </div>
+                    <div class="key-data">
+                        <div class="text-2xl font-bold text-warm-orange mb-1">5万+</div>
+                        <div class="text-sm text-gray-600">月收入(元)</div>
+                    </div>
+                    <div class="key-data">
+                        <div class="text-2xl font-bold text-warm-orange mb-1">视频号</div>
+                        <div class="text-sm text-gray-600">主要渠道</div>
+                    </div>
+                </div>
+                
+                <!-- 一键参考按钮 -->
+                <button id="oneClickReference" class="bg-warm-orange hover:bg-warm-orange/90 text-white px-6 py-3 rounded-md font-medium transition-all shadow-lg hover:shadow-xl flex items-center mx-auto">
+                    <i class="fa fa-magic mr-2"></i> 一键参考，生成我的试投方案
+                </button>
+            </div>
+            
+            <!-- 故事内容区域 -->
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-sm p-6 md:p-8 mb-10">
+                <!-- 故事导语 -->
+                <div class="highlight-box mb-8">
+                    <p class="text-gray-700">
+                        <strong>核心经验：</strong> 利用视频号的社交传播特性，结合腾讯广告精准投放，从0粉丝起步，3个月实现月入5万。关键在于内容真实性和投放策略的持续优化。
+                    </p>
+                </div>
+                
+                <!-- 故事正文 -->
+                <div class="prose max-w-none">
+                    <p class="mb-4">大家好，我是王姐，一个90后宝妈。在做童装之前，我整整3年没有工作，每天的生活就是围着孩子转。看着身边的朋友都有自己的事业，我也想找点事情做，但又不想错过孩子的成长。</p>
+                    
+                    <p class="mb-4">一次偶然的机会，我在视频号上刷到很多宝妈分享育儿经验，突然想到：我为什么不分享孩子的穿搭呢？既符合我的生活，又能发挥我对童装的审美优势。</p>
+                    
+                    <h3 class="text-xl font-semibold mt-8 mb-4">一、起步阶段：1万元启动，从朋友圈开始</h3>
+                    
+                    <p class="mb-4">一开始我只有1万元启动资金，不敢贸然开店。我先在批发市场挑选了一些款式新颖但价格不贵的童装，每件加价30-50元，在朋友圈和视频号分享孩子的穿搭视频。</p>
+                    
+                    <div class="my-6">
+                        <img src="https://raw.githubusercontent.com/KevinzbZhang/PC-/main/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A120250922-172916%402x.png" alt="童装穿搭示例" class="w-full h-auto rounded-lg shadow-sm">
+                        <p class="text-center text-sm text-gray-500 mt-2">早期在视频号发布的穿搭视频截图</p>
+                    </div>
+                    
+                    <p class="mb-4">前一个月，我每天坚持发2-3条视频，但效果并不理想，一个月只卖出了十几件衣服，扣除成本几乎没赚钱。</p>
+                    
+                    <h3 class="text-xl font-semibold mt-8 mb-4">二、转折点：尝试腾讯广告，精准找到目标客户</h3>
+                    
+                    <p class="mb-4">就在我快要放弃的时候，朋友推荐我试试腾讯广告。一开始我很犹豫，担心投了没效果，但抱着试试看的心态，我还是拿出了2000元预算。</p>
+                    
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h4 class="font-medium mb-2">选择投放渠道</h4>
+                            <p class="text-gray-700 mb-2">我选择了视频号和朋友圈广告，因为这两个平台的宝妈用户最多</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h4 class="font-medium mb-2">精准定位人群</h4>
+                            <p class="text-gray-700 mb-2">设置了25-40岁女性，关注"育儿""童装""母婴"等关键词，投放范围选择了我所在城市及周边</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h4 class="font-medium mb-2">制作简单素材</h4>
+                            <p class="text-gray-700 mb-2">用手机拍摄孩子的穿搭视频，加上简单的文字说明和价格，没有做复杂的后期</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h4 class="font-medium mb-2">控制投放节奏</h4>
+                            <p class="text-gray-700 mb-2">每天投放100-150元，观察数据变化，及时调整投放时间和人群</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box my-6">
+                        <p class="text-gray-700">
+                            <strong>关键发现：</strong> 我发现下午3-5点（宝妈们可能在孩子午睡时刷手机）和晚上8-10点（孩子睡后）的转化率最高，于是我把大部分预算集中在这两个时间段。
+                        </p>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mt-8 mb-4">三、效果显现：3个月实现月入5万</h3>
+                    
+                    <p class="mb-4">投放广告后的第一个星期，咨询量就明显增加，每天能卖出5-8件衣服。我逐渐增加了预算，从2000元增加到5000元，同时优化了选品和视频内容。</p>
+                    
+                    <p class="mb-4">第二个月，我开通了微信小店，方便客户直接下单。还建立了客户微信群，定期分享新款和优惠活动，培养客户粘性。</p>
+                    
+                    <p class="mb-4">到第三个月，我的月销售额已经达到了5万元，除去成本和广告投放费用，纯利润有2万多元。现在我已经雇了2个兼职客服，专门处理咨询和订单。</p>
+                    
+                    <div class="my-6">
+                        <img src="https://picsum.photos/id/21/800/500" alt="订单增长图" class="w-full h-auto rounded-lg shadow-sm">
+                        <p class="text-center text-sm text-gray-500 mt-2">三个月订单增长趋势</p>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mt-8 mb-4">四、给新手的3点建议</h3>
+                    
+                    <ol class="list-decimal pl-5 space-y-2 mb-6">
+                        <li><strong>内容真实最重要</strong>：不需要专业的拍摄设备，真实的生活场景和产品展示更能获得信任</li>
+                        <li><strong>从小预算开始试错</strong>：不要一开始就投很多钱，先测试不同的人群和素材，找到最适合自己的投放方式</li>
+                        <li><strong>重视客户维护</strong>：把客户加到微信里，定期互动，老客户带来的复购和转介绍是最划算的流量</li>
+                    </ol>
+                    
+                    <p class="mb-4">现在我不仅实现了经济独立，还能兼顾家庭，这是我以前想都不敢想的。如果你也是宝妈，或者想创业但资金有限，不妨试试视频号+腾讯广告的模式，也许会有意外的收获。</p>
+                </div>
+            </div>
+            
+            <!-- 相关工具推荐 -->
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-sm p-6 md:p-8 mb-10">
+                <h3 class="text-xl font-semibold mb-6 flex items-center">
+                    <i class="fa fa-wrench text-warm-orange mr-2"></i> 王姐使用的工具推荐
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 工具1 -->
+                    <div class="border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fa fa-video-camera text-primary"></i>
+                            </div>
+                            <h4 class="font-medium">视频号广告</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">精准触达目标人群，按效果付费</p>
+                        <a href="#" class="text-primary text-sm hover:underline">了解详情</a>
+                    </div>
+                    
+                    <!-- 工具2 -->
+                    <div class="border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fa fa-shopping-bag text-primary"></i>
+                            </div>
+                            <h4 class="font-medium">微信小店</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">零门槛开店，客户直接下单</p>
+                        <a href="#" class="text-primary text-sm hover:underline">了解详情</a>
+                    </div>
+                    
+                    <!-- 工具3 -->
+                    <div class="border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fa fa-comments text-primary"></i>
+                            </div>
+                            <h4 class="font-medium">企微客服</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">高效处理客户咨询，自动回复常见问题</p>
+                        <a href="#" class="text-primary text-sm hover:underline">了解详情</a>
+                    </div>
+                    
+                    <!-- 工具4 -->
+                    <div class="border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fa fa-image text-primary"></i>
+                            </div>
+                            <h4 class="font-medium">妙思设计</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">简单易用的图片设计工具，制作广告素材</p>
+                        <a href="#" class="text-primary text-sm hover:underline">了解详情</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 底部一键参考按钮 -->
+            <div class="max-w-3xl mx-auto mb-8 text-center">
+                <button id="bottomOneClickReference" class="bg-warm-orange hover:bg-warm-orange/90 text-white px-6 py-3 rounded-md font-medium transition-all shadow-lg hover:shadow-xl flex items-center mx-auto">
+                    <i class="fa fa-magic mr-2"></i> 一键参考，生成我的试投方案
+                </button>
+            </div>
+            
+            <!-- 相关故事推荐 -->
+            <div class="max-w-3xl mx-auto mb-10">
+                <h3 class="text-xl font-semibold mb-6 flex items-center">
+                    <i class="fa fa-book text-warm-orange mr-2"></i> 你可能也感兴趣的故事
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 推荐故事1 -->
+                    <a href="#" class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow block">
+                        <div class="relative h-40">
+                            <img src="https://picsum.photos/id/28/600/400" alt="篮球教练获客" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-medium mb-2 line-clamp-2">一个篮球教练的30天获客实验</h4>
+                            <div class="flex flex-wrap gap-1 mb-3">
+                                <span class="story-tag">#本地推</span>
+                                <span class="story-tag">#5千-2万</span>
+                            </div>
+                            <div class="text-sm text-gray-500">张教练 · 12天前</div>
+                        </div>
+                    </a>
+                    
+                    <!-- 推荐故事2 -->
+                    <a href="#" class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow block">
+                        <div class="relative h-40">
+                            <img src="https://picsum.photos/id/42/600/400" alt="小吃店老板" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-medium mb-2 line-clamp-2">50后大叔的小吃店转型记：学会用广告后排队到巷尾</h4>
+                            <div class="flex flex-wrap gap-1 mb-3">
+                                <span class="story-tag">#50后店主</span>
+                                <span class="story-tag">#5千以下</span>
+                            </div>
+                            <div class="text-sm text-gray-500">刘大叔 · 20天前</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 一键参考弹窗 -->
+    <div id="referenceModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 class="text-xl font-bold">生成你的试投方案</h3>
+                <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fa fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-700 mb-6">基于王姐的成功经验，我们为你生成了个性化的试投方案。请填写以下信息，方案将更精准：</p>
+                
+                <form id="referenceForm" class="space-y-6">
+                    <!-- 业务类型 -->
+                    <div>
+                        <label class="block text-gray-700 mb-2 font-medium">你的业务类型</label>
+                        <select class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                            <option value="children-clothing">童装/母婴用品（参考王姐方案）</option>
+                            <option value="women-clothing">女装/时尚配饰</option>
+                            <option value="food">餐饮/食品</option>
+                            <option value="pet-store">宠物美容/宠物店（新增本地推热门方案）</option>
+                            <option value="education">教育培训</option>
+                            <option value="service">生活服务</option>
+                            <option value="other">其他行业</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 启动预算 -->
+                    <div>
+                        <label class="block text-gray-700 mb-2 font-medium">你的启动预算</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <label class="border border-gray-300 rounded-md p-3 flex items-center cursor-pointer hover:border-primary transition-colors">
+                                <input type="radio" name="budget" value="5000" class="mr-2" checked>
+                                <span>5000元以下</span>
+                            </label>
+                            <label class="border border-gray-300 rounded-md p-3 flex items-center cursor-pointer hover:border-primary transition-colors">
+                                <input type="radio" name="budget" value="10000" class="mr-2">
+                                <span>5000-2万</span>
+                            </label>
+                            <label class="border border-gray-300 rounded-md p-3 flex items-center cursor-pointer hover:border-primary transition-colors">
+                                <input type="radio" name="budget" value="20000+" class="mr-2">
+                                <span>2万以上</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- 目标城市 -->
+                    <div>
+                        <label class="block text-gray-700 mb-2 font-medium">目标投放城市</label>
+                        <input type="text" placeholder="请输入你的目标城市，如：北京" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                    </div>
+                    
+                    <!-- 目标人群 -->
+                    <div>
+                        <label class="block text-gray-700 mb-2 font-medium">目标人群特征</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-sm text-gray-500 mb-1">年龄范围</label>
+                                <select class="w-full p-2 border border-gray-300 rounded-md">
+                                    <option>18-25岁</option>
+                                    <option>25-35岁</option>
+                                    <option>35-45岁</option>
+                                    <option>45岁以上</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-500 mb-1">性别</label>
+                                <select class="w-full p-2 border border-gray-300 rounded-md">
+                                    <option>不限</option>
+                                    <option>女性</option>
+                                    <option>男性</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <label class="block text-sm text-gray-500 mb-1">兴趣标签（可多选）</label>
+                            <div class="flex flex-wrap gap-2">
+                                <label class="border border-gray-300 rounded-full px-3 py-1 text-sm flex items-center cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" class="mr-1" checked> 育儿
+                                </label>
+                                <label class="border border-gray-300 rounded-full px-3 py-1 text-sm flex items-center cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" class="mr-1" checked> 时尚穿搭
+                                </label>
+                                <label class="border border-gray-300 rounded-full px-3 py-1 text-sm flex items-center cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" class="mr-1"> 美食
+                                </label>
+                                <label class="border border-gray-300 rounded-full px-3 py-1 text-sm flex items-center cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" class="mr-1"> 旅游
+                                </label>
+                                <label class="border border-gray-300 rounded-full px-3 py-1 text-sm flex items-center cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" class="mr-1"> 教育
+                                </label>
+                                <label class="border border-gray-300 rounded-full px-3 py-1 text-sm flex items-center cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" class="mr-1"> 宠物
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 期望效果 -->
+                    <div>
+                        <label class="block text-gray-700 mb-2 font-medium">你最期望的效果</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="border border-gray-300 rounded-md p-3 flex flex-col items-center text-center cursor-pointer hover:border-primary transition-colors">
+                                <i class="fa fa-shopping-cart text-xl text-gray-500 mb-2"></i>
+                                <input type="radio" name="goal" value="sales" class="mb-1" checked>
+                                <span class="text-sm">提升销量</span>
+                            </label>
+                            <label class="border border-gray-300 rounded-md p-3 flex flex-col items-center text-center cursor-pointer hover:border-primary transition-colors">
+                                <i class="fa fa-user-plus text-xl text-gray-500 mb-2"></i>
+                                <input type="radio" name="goal" value="follow" class="mb-1">
+                                <span class="text-sm">增加粉丝</span>
+                            </label>
+                            <label class="border border-gray-300 rounded-md p-3 flex flex-col items-center text-center cursor-pointer hover:border-primary transition-colors">
+                                <i class="fa fa-phone text-xl text-gray-500 mb-2"></i>
+                                <input type="radio" name="goal" value="lead" class="mb-1">
+                                <span class="text-sm">获取线索</span>
+                            </label>
+                            <label class="border border-gray-300 rounded-md p-3 flex flex-col items-center text-center cursor-pointer hover:border-primary transition-colors">
+                                <i class="fa fa-eye text-xl text-gray-500 mb-2"></i>
+                                <input type="radio" name="goal" value="exposure" class="mb-1">
+                                <span class="text-sm">品牌曝光</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- 联系方式 -->
+                    <div>
+                        <label class="block text-gray-700 mb-2 font-medium">你的联系方式（方案将发送至此）</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <input type="text" placeholder="姓名" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                            <input type="tel" placeholder="手机号码" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">我们将严格保护你的个人信息，不会用于其他用途</p>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="p-6 border-t">
+                <button id="generatePlan" class="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-md font-medium transition-colors flex items-center justify-center">
+                    <i class="fa fa-cog fa-spin mr-2 hidden" id="loadingIcon"></i>
+                    <span>生成试投方案</span>
+                </button>
+                <p class="text-center text-sm text-gray-500 mt-3">
+                    生成方案后，我们还将提供1对1专属顾问服务
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 方案生成成功弹窗 -->
+    <div id="successModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl w-full max-w-md p-6 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa fa-check text-2xl text-green-500"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">方案生成成功！</h3>
+            <p class="text-gray-600 mb-6">
+                你的个性化试投方案已生成，我们将在10分钟内发送至你的手机短信和微信。
+            </p>
+            <div class="space-y-3">
+                <button id="viewPlan" class="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-md font-medium transition-colors">
+                    立即查看方案
+                </button>
+                <button id="closeSuccessModal" class="w-full border border-gray-300 hover:bg-gray-50 text-gray-700 py-3 rounded-md font-medium transition-colors">
+                    稍后查看
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer class="bg-gray-50 border-t border-gray-200 py-12">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <img src="https://qzonestyle.gdtimg.com/gdt_ui_proj/imghub/dist/eqq-home-rotary-center-logo.svg?max_age=31536000" alt="腾讯广告logo" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-lg font-bold text-tencent-blue">腾讯广告</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        腾讯广告为您提供一站式数字营销解决方案，助力企业实现增长目标。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fa fa-qq"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">广告资源</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">微信广告</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">QQ广告</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">腾讯视频广告</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">信息流广告</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">搜索广告</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">帮助中心</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">新手指南</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">常见问题</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">政策法规</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">联系客服</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">反馈建议</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">关于我们</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">公司介绍</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">成功案例</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">营销学院</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">加入我们</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">商务合作</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-200 text-center text-sm text-gray-500">
+                <p>© 2023 腾讯广告 版权所有 | 腾讯公司 版权所有</p>
+                <p class="mt-2">营业执照 | 增值电信业务经营许可证 | 网络文化经营许可证</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 在线客服 -->
+    <div class="fixed bottom-6 right-6 z-40">
+        <div class="bg-white rounded-full shadow-lg p-3 flex items-center space-x-3 hover:shadow-xl transition-shadow cursor-pointer group">
+            <div class="w-10 h-10 flex items-center justify-center">
+                <img src="https://qzonestyle.gdtimg.com/gdt_ui_proj/imghub/dist/mw-icon-entry-logo.png?max_age=31536000" alt="小客专属客服" class="w-full h-full object-contain">
+            </div>
+            <span class="text-gray-700 font-medium group-hover:text-warm-orange transition-colors">小客专属客服</span>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMainMenu = document.getElementById('mobile-main-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMainMenu.classList.toggle('hidden');
+        });
+        
+        // 一键参考功能
+        const oneClickReference = document.getElementById('oneClickReference');
+        const referenceModal = document.getElementById('referenceModal');
+        const closeModal = document.getElementById('closeModal');
+        const generatePlan = document.getElementById('generatePlan');
+        const loadingIcon = document.getElementById('loadingIcon');
+        const successModal = document.getElementById('successModal');
+        const closeSuccessModal = document.getElementById('closeSuccessModal');
+        const viewPlan = document.getElementById('viewPlan');
+        const bottomOneClickReference = document.getElementById('bottomOneClickReference');
+        
+        // 打开弹窗 - 顶部按钮
+        oneClickReference.addEventListener('click', () => {
+            referenceModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // 打开弹窗 - 底部按钮
+        bottomOneClickReference.addEventListener('click', () => {
+            referenceModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // 关闭弹窗
+        closeModal.addEventListener('click', () => {
+            referenceModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // 点击外部关闭弹窗
+        referenceModal.addEventListener('click', (e) => {
+            if (e.target === referenceModal) {
+                referenceModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // 生成方案
+        generatePlan.addEventListener('click', () => {
+            // 显示加载状态
+            loadingIcon.classList.remove('hidden');
+            generatePlan.disabled = true;
+            
+            // 模拟生成方案的过程
+            setTimeout(() => {
+                referenceModal.classList.add('hidden');
+                successModal.classList.remove('hidden');
+                loadingIcon.classList.add('hidden');
+                generatePlan.disabled = false;
+            }, 2000);
+        });
+        
+        // 关闭成功弹窗
+        closeSuccessModal.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // 查看方案
+        viewPlan.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            // 这里可以跳转到方案详情页
+            alert('正在跳转到你的试投方案详情页...');
+        });
+        
+        // 点击外部关闭成功弹窗
+        successModal.addEventListener('click', (e) => {
+            if (e.target === successModal) {
+                successModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.remove('shadow');
+                header.classList.add('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
