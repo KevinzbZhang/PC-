@@ -33,28 +33,52 @@
         @layer utilities {
             .content-auto {
                 content-visibility: auto;
-            }
+            }            
             .text-shadow {
                 text-shadow: 0 2px 4px rgba(0,0,0,0.1);
             }
             .highlight-box {
-                @apply bg-orange-50 border-l-4 border-warm-orange p-4 rounded-r;
+                background-color: #fff7ed;
+                border-left: 4px solid #ff7d00;
+                padding: 1rem;
+                border-radius: 0 0.25rem 0.25rem 0;
             }
             .key-data {
-                @apply bg-white rounded-xl shadow-sm p-4 text-center;
+                background-color: #ffffff;
+                border-radius: 0.75rem;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                padding: 1rem;
+                text-align: center;
             }
             .step-item {
-                @apply flex mb-8 relative;
+                display: flex;
+                margin-bottom: 2rem;
+                position: relative;
             }
             .step-item::before {
                 content: '';
-                @apply absolute left-3 top-10 bottom-0 w-0.5 bg-gray-200;
+                position: absolute;
+                left: 0.75rem;
+                top: 2.5rem;
+                bottom: 0;
+                width: 0.125rem;
+                background-color: #e5e7eb;
             }
             .step-item:last-child::before {
-                @apply hidden;
+                display: none;
             }
             .step-number {
-                @apply w-7 h-7 rounded-full bg-warm-orange text-white flex items-center justify-center font-medium flex-shrink-0 mr-4;
+                width: 1.75rem;
+                height: 1.75rem;
+                border-radius: 9999px;
+                background-color: #ff7d00;
+                color: #ffffff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 500;
+                flex-shrink: 0;
+                margin-right: 1rem;
             }
         }
     </style>
@@ -66,7 +90,7 @@
             <div class="flex items-center justify-center md:justify-between h-16 md:h-20">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="small-business-home-v2.html" class="flex items-center space-x-2">
+                    <a href="index.html" class="flex items-center space-x-2">
                         <div class="w-8 h-8 flex items-center justify-center">
                             <img src="https://qzonestyle.gdtimg.com/gdt_ui_proj/imghub/dist/eqq-home-rotary-center-logo.svg?max_age=31536000" alt="腾讯广告logo" class="w-full h-full object-contain">
                         </div>
