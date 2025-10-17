@@ -212,9 +212,9 @@
                     </div>
                 </div>
                 
-                <!-- 一键参考按钮 -->
-                <button id="oneClickReference" class="bg-warm-orange hover:bg-warm-orange/90 text-white px-6 py-3 rounded-md font-medium transition-all shadow-lg hover:shadow-xl flex items-center mx-auto">
-                    <i class="fa fa-magic mr-2"></i> 一键参考，生成我的试投方案
+                <!-- 立即开户按钮 -->
+                <button class="bg-warm-orange hover:bg-warm-orange/90 text-white px-6 py-3 rounded-md font-medium transition-all shadow-lg hover:shadow-xl flex items-center mx-auto">
+                    <i class="fa fa-rocket mr-2"></i> 立即开户试试
                 </button>
             </div>
             
@@ -368,10 +368,10 @@
                 </div>
             </div>
             
-            <!-- 底部一键参考按钮 -->
+            <!-- 底部立即开户按钮 -->
             <div class="max-w-3xl mx-auto mb-8 text-center">
-                <button id="bottomOneClickReference" class="bg-warm-orange hover:bg-warm-orange/90 text-white px-6 py-3 rounded-md font-medium transition-all shadow-lg hover:shadow-xl flex items-center mx-auto">
-                    <i class="fa fa-magic mr-2"></i> 一键参考，生成我的试投方案
+                <button class="bg-warm-orange hover:bg-warm-orange/90 text-white px-6 py-3 rounded-md font-medium transition-all shadow-lg hover:shadow-xl flex items-center mx-auto">
+                    <i class="fa fa-rocket mr-2"></i> 立即开户试试
                 </button>
             </div>
             
@@ -416,8 +416,8 @@
         </div>
     </main>
 
-    <!-- 一键参考弹窗 -->
-    <div id="referenceModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden">
+    <!-- 一键参考弹窗（已隐藏） -->
+    <div id="referenceModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden" style="display: none !important;">
         <div class="bg-white rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div class="p-6 border-b flex justify-between items-center">
                 <h3 class="text-xl font-bold">生成你的试投方案</h3>
@@ -566,8 +566,8 @@
         </div>
     </div>
     
-    <!-- 方案生成成功弹窗 -->
-    <div id="successModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden">
+    <!-- 方案生成成功弹窗（已隐藏） -->
+    <div id="successModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden" style="display: none !important;">
         <div class="bg-white rounded-xl w-full max-w-md p-6 text-center">
             <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i class="fa fa-check text-2xl text-green-500"></i>
